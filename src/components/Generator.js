@@ -33,6 +33,7 @@ const Generator = ({length, special, numbers, capitals}) => {
 
   useEffect(() => {
     generate(length, special, numbers, capitals)
+    // eslint-disable-next-line
   }, [length, special, numbers, capitals])
 
   const handleRefresh = () => {
