@@ -28,8 +28,8 @@ const Index = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     return (
-        <Grid container spacing={2} style={{margin: 'auto', display: 'flex', textAlign: 'center'}}>
-            <Grid item xs={12}>
+        <Grid container spacing={2} >
+            <Grid item xs={12} style={{ textAlign: 'center'}}>
                     <Typography variant='h4'>Password Generator</Typography>
                     <FormGroup style={{alignContent: 'center'}}>
                         <FormControlLabel onChange={e => dispatch({type: 'capitals', capitals: e.target.checked})} control={<Switch style={{color: '#444444'}} />} label="Capitals" />   
@@ -47,11 +47,9 @@ const Index = () => {
                             max={20}
                             onChange={e => dispatch({type: 'length', length: e.target.value})}
                             style={{color: '#444444', width: '50%'}}
-                            marks={[{value: 6, label: 'Weak' }, {value: 8, label: 'Average' }, {value: 12, label: 'Strong' }, {value: 16, label: 'Stronger' }, {value: 20, label: 'Strongest' }]}
                         />
-
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} style={{ textAlign: 'center'}}>
                 <Generator length={state.length} special={state.special} numbers={state.numbers} capitals={state.capitals}/>
             </Grid>
         </Grid>

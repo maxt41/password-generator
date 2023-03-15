@@ -46,7 +46,7 @@ const Generator = ({length, special, numbers, capitals}) => {
 
   return (
     <Grid container spacing={2}>
-      <Grid item xs={12}>
+      <Grid item xs={12} style={{ textAlign: 'center'}}>
         <Typography variant='h5'>{(password)}</Typography>
         <IconButton aria-label="Copy" onClick={handleCopy} style={{color: '#444444'}}>
           <ContentCopyIcon/>
