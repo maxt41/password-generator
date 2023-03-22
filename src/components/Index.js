@@ -1,12 +1,12 @@
 import React, { useReducer } from 'react'
-import Generator from './Generator'
-import { Typography, Grid, FormGroup, FormControlLabel, Switch, Slider } from '@mui/material';
+import { Typography, Stack, FormControlLabel, Slider, Grid, Checkbox, Paper, FormGroup, Divider } from '@mui/material';
 
 const initialState = {
     length: 20,
     capitals: false,
     numbers: false,
-    special: false
+    special: false,
+    lowercase: true
 }
 
 const reducer = (state, action) => {
@@ -15,6 +15,8 @@ const reducer = (state, action) => {
             return {...state, length: action.length}
         case 'capitals': 
             return {...state, capitals: action.capitals}
+        case 'lowercase': 
+        return {...state, lowercase: action.lowercase}
         case 'numbers': 
             return {...state, numbers: action.numbers}
         case 'special': 
@@ -28,31 +30,42 @@ const Index = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     return (
-        <Grid container spacing={2} >
-            <Grid item xs={12} style={{ textAlign: 'center'}}>
-                    <Typography variant='h4'>Password Generator</Typography>
-                    <FormGroup style={{alignContent: 'center'}}>
-                        <FormControlLabel onChange={e => dispatch({type: 'capitals', capitals: e.target.checked})} control={<Switch style={{color: '#444444'}} />} label="Capitals" />   
+        <Paper elevation={3}>
+            <Grid container spacing={2} paddingInline='40px'>
+                <Grid item xs={12}>
+                    <Typography variant='h4' fontWeight='bold'>Customize your password</Typography>
+                    <Divider />
+                </Grid>
 
-                        <FormControlLabel onChange={e => dispatch({type: 'numbers', numbers: e.target.checked})} control={<Switch style={{color: '#444444'}}/>} label="Numbers" /> 
+                <Grid item xs={6} marginBottom='10px'>
+                
+                    <Typography variant='h6'>Password Length</Typography>
+                    <Slider
+                        defaultValue={20}
+                        step={1}
+                        valueLabelDisplay="auto"
+                        min={1}
+                        max={20}
+                        color='accent'
+                        onChange={e => dispatch({type: 'length', length: e.target.value})}
+                    />
+                </Grid>
+                <Grid item xs={6} marginBottom='10px'>
+                    <Stack> 
+                        <FormGroup style={{display: 'flex', margin: 'auto'}}>
+                            <FormControlLabel onChange={e => dispatch({type: 'lowercase', lowercase: e.target.checked})} control={<Checkbox defaultChecked color='accent' />} label="Lowercase"  /> 
 
-                        <FormControlLabel onChange={e => dispatch({type: 'special', special: e.target.checked})} control={<Switch style={{color: '#444444'}}/>} label="Special Characters" />
-                    </FormGroup>
-                    <Typography variant='h6'>Length</Typography>
-                        <Slider
-                            defaultValue={20}
-                            step={1}
-                            valueLabelDisplay="auto"
-                            min={1}
-                            max={20}
-                            onChange={e => dispatch({type: 'length', length: e.target.value})}
-                            style={{color: '#444444', width: '50%'}}
-                        />
+                            <FormControlLabel onChange={e => dispatch({type: 'capitals', capitals: e.target.checked})} control={<Checkbox color='accent' />} label="Uppercase"  />   
+
+                            <FormControlLabel onChange={e => dispatch({type: 'numbers', numbers: e.target.checked})} control={<Checkbox color='accent'/>} label="Numbers" /> 
+
+                            <FormControlLabel onChange={e => dispatch({type: 'special', special: e.target.checked})} control={<Checkbox color='accent'/>} label="Symbols" />
+                        </FormGroup>
+
+                    </Stack>
+                </Grid>
             </Grid>
-            <Grid item xs={12} style={{ textAlign: 'center'}}>
-                <Generator length={state.length} special={state.special} numbers={state.numbers} capitals={state.capitals}/>
-            </Grid>
-        </Grid>
+        </Paper>
     )
 }
 
