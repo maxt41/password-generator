@@ -67,7 +67,7 @@ const Generator = ({length, special, numbers, capitals, lowercase}) => {
   return (
     <Grid container direction="row" justifyContent="center" alignItems="center">
       <Grid xs={8} padding="30px" paddingInline="0px">
-        <Typography variant='h5'><code>{(password)}</code></Typography>
+        <Typography variant='h5' maxHeight='100%' style={{overflowX: 'auto', overflowY: 'hidden', whiteSpace: 'nowrap'}} ><code>{(password)}</code></Typography>
       </Grid>
       <Grid xs={4} padding="34px" paddingInline="0px">
       <IconButton aria-label="Refresh" onClick={handleRefresh} style={{color: '#444444', float: 'right'}}>

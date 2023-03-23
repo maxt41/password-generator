@@ -32,7 +32,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Container maxWidth='md'>
-        <Grid container spacing={2} >
+        <Grid container spacing={2} justifyContent="center">
           <Grid item xs={12} textAlign="center">
             <Header />
           </Grid>
