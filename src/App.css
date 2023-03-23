@@ -1,7 +1,7 @@
 :root {
   --text-colour: #000000;
   --background-colour: #caedf7;
-  --button-color: #dd2222
+  --button-color: #dd2222;
 }
 
 body {
@@ -9,4 +9,9 @@ body {
   font-family: neo-sans, 'Segoe UI', 'Roboto', sans-serif;
   color: var(--text-colour);
   background-color: var(--background-colour);
+}
+
+code {
+  font-family: monospace, 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 2.25rem;
 }

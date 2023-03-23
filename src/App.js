@@ -18,6 +18,12 @@ const theme = createTheme({
     },
     accent: {
       main: '#dd2222'
+    },
+    strong: {
+      main: '#368149',
+    },
+    medium: {
+      main: '#efc20f',
     }
   },
 });
@@ -30,7 +36,7 @@ function App() {
           <Grid item xs={12} margin="10px" textAlign="center">
             <Header />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} margin="10px">
             <Index />
           </Grid>
         </Grid>
