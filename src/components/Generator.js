@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { Typography, Grid, IconButton, LinearProgress } from '@mui/material';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import CopyPopUp from './CopyPopUp';
 
 const Generator = ({length, special, numbers, capitals, lowercase}) => {
   const [password, setPassword] = useState('')
   const [strength, setStrength] = useState(password.length*5)
   const [color, setColor] = useState('strong')
+  const [open, setOpen] = useState(false)
   const nums = [0,1,2,3,4,5,6,7,8,9]
   const chars = ['!','?','$','*','&']
   const lower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
@@ -60,16 +62,23 @@ const Generator = ({length, special, numbers, capitals, lowercase}) => {
 
   const handleCopy = () => {
     navigator.clipboard.writeText(password.join(''))
+    handleClickOpen()
   }
 
-  console.log(password)
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <Grid container direction="row" justifyContent="center" alignItems="center">
-      <Grid xs={8} padding="30px" paddingInline="0px">
+      <Grid item xs={8} padding="30px" paddingInline="0px">
         <Typography variant='h5' maxHeight='100%' style={{overflowX: 'auto', overflowY: 'hidden', whiteSpace: 'nowrap'}} ><code>{(password)}</code></Typography>
       </Grid>
-      <Grid xs={4} padding="34px" paddingInline="0px">
+      <Grid item xs={4} padding="34px" paddingInline="0px">
       <IconButton aria-label="Refresh" onClick={handleRefresh} style={{color: '#444444', float: 'right'}}>
           <RefreshIcon />
         </IconButton>
@@ -77,9 +86,13 @@ const Generator = ({length, special, numbers, capitals, lowercase}) => {
           <ContentCopyIcon/>
         </IconButton>
       </Grid>
-      <Grid xs={12} paddingInline="0px">
+      <Grid item xs={12} paddingInline="0px">
         <LinearProgress variant="determinate" color={color} value={strength} style={{width: '100%', height: '10px'}}/>
       </Grid>
+      <CopyPopUp
+        open={open}
+        onClose={handleClose}
+      />
     </Grid>
   )
 }

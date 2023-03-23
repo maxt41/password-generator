@@ -19,3 +19,15 @@ code {
 .MuiLinearProgress-bar {
   border-radius: 5px;
 }
+
+@media screen and (max-width: 700px) {
+
+  .PopUpImg img {
+    display: none;
+  }
+
+  .PopUpText {
+    width: 200%;
+  }
+
+}
