@@ -33,10 +33,10 @@ function App() {
     <ThemeProvider theme={theme}>
       <Container maxWidth='md'>
         <Grid container spacing={2} >
-          <Grid item xs={12} margin="10px" textAlign="center">
+          <Grid item xs={12} textAlign="center">
             <Header />
           </Grid>
-          <Grid item xs={12} margin="10px">
+          <Grid item xs={12}>
             <Index />
           </Grid>
         </Grid>

@@ -65,11 +65,11 @@ const Generator = ({length, special, numbers, capitals, lowercase}) => {
   console.log(password)
 
   return (
-    <Grid container spacing={2} direction="row" justifyContent="center" alignItems="center" >
-      <Grid xs={6} padding="34px" paddingInline="0px">
+    <Grid container direction="row" justifyContent="center" alignItems="center">
+      <Grid xs={8} padding="30px" paddingInline="0px">
         <Typography variant='h5'><code>{(password)}</code></Typography>
       </Grid>
-      <Grid xs={6} padding="34px" paddingInline="0px">
+      <Grid xs={4} padding="34px" paddingInline="0px">
       <IconButton aria-label="Refresh" onClick={handleRefresh} style={{color: '#444444', float: 'right'}}>
           <RefreshIcon />
         </IconButton>

@@ -34,7 +34,7 @@ const Index = () => {
     return (
         <div>
             <Paper elevation={3} style={{marginBottom: "25px"}}>
-                <Grid container spacing={2} paddingInline='40px'>
+                <Grid spacing={2} paddingInline='40px'>
                     <Grid item xs={12}>
                         <Generator length={state.length} capitals={state.capitals} lowercase={state.lowercase} numbers={state.numbers} special={state.special}/>    
                     </Grid>
