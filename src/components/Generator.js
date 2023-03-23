@@ -66,10 +66,10 @@ const Generator = ({length, special, numbers, capitals, lowercase}) => {
 
   return (
     <Grid container spacing={2} direction="row" justifyContent="center" alignItems="center" >
-      <Grid xs={6} padding="36px" paddingInline="0px">
+      <Grid xs={6} padding="34px" paddingInline="0px">
         <Typography variant='h5'><code>{(password)}</code></Typography>
       </Grid>
-      <Grid xs={6} padding="36px" paddingInline="0px">
+      <Grid xs={6} padding="34px" paddingInline="0px">
       <IconButton aria-label="Refresh" onClick={handleRefresh} style={{color: '#444444', float: 'right'}}>
           <RefreshIcon />
         </IconButton>
@@ -77,8 +77,8 @@ const Generator = ({length, special, numbers, capitals, lowercase}) => {
           <ContentCopyIcon/>
         </IconButton>
       </Grid>
-      <Grid xs={12}>
-        <LinearProgress variant="determinate" color={color} value={strength} style={{width: '100%'}}/>
+      <Grid xs={12} paddingInline="0px">
+        <LinearProgress variant="determinate" color={color} value={strength} style={{width: '100%', height: '10px'}}/>
       </Grid>
     </Grid>
   )
