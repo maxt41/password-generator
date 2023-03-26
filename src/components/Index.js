@@ -29,13 +29,12 @@ const reducer = (state, action) => {
 
 const Index = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
-    console.log(state)
 
     return (
         <div>
             <Paper elevation={3} style={{marginBottom: "25px"}}>
-                <Grid spacing={2} paddingInline='40px'>
-                    <Grid item xs={12}>
+                <Grid paddingInline='40px'>
+                    <Grid>
                         <Generator length={state.length} capitals={state.capitals} lowercase={state.lowercase} numbers={state.numbers} special={state.special}/>    
                     </Grid>
                 </Grid>
