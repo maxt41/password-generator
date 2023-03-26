@@ -1,3 +1,3 @@
 # Password generator created with React and MUI
-Hosted: https://mtpasswordgenerator.netlify.app/ \
+Hosted: https://mtlastpass.netlify.app/ \
 By Max Thomas
